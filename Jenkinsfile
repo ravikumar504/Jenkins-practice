@@ -2,7 +2,7 @@ pipeline {
     agent { label 'Agent-1' }
     environment {
         project = 'Expense'
-        DEPLOY_TO= 'QA'
+        DEPLOY_TO= 'production'
     }
     options {
         disableConcurrentBuilds()
