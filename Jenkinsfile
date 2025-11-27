@@ -56,6 +56,15 @@ pipeline {
                 }
             }
         }
+        stage('compile') {
+            steps {
+                script{
+                    sh """
+                        echo "hello this is compile from node"
+                    """
+                }
+            }
+        }
         
     }
     post {
