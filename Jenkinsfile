@@ -1,11 +1,15 @@
 pipeline {
     agent { label 'Agent-1' }
+    environment {
+        project = 'Expense'
+    }
     stages {
         stage('build') {
             steps {
                 script{
                     sh """
                         echo "hello this is build from node"
+                        echo "project: $project"
                     """
                 }
             }
