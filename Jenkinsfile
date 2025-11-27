@@ -10,6 +10,24 @@ pipeline {
                 }
             }
         }
+        stage('test') {
+            steps {
+                script{
+                    sh """
+                        echo "hello this is test"
+                    """
+                }
+            }
+        }
+        stage('deploy') {
+            steps {
+                script{
+                    sh """
+                        echo "hello this is deploy"
+                    """
+                }
+            }
+        }
         
     }
 }
