@@ -48,6 +48,14 @@ pipeline {
             }
         }
         stage('deploy') {
+            input {
+                message "Should we continue?"
+                ok "Yes, we should."
+                submitter "alice,bob"
+                parameters {
+                    string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
+                }
+            }
             steps {
                 script{
                     sh """
@@ -56,15 +64,7 @@ pipeline {
                 }
             }
         }
-        stage('compile') {
-            steps {
-                script{
-                    sh """
-                        echo "hello this is compile from node"
-                    """
-                }
-            }
-        }
+        
         
     }
     post {
