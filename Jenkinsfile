@@ -68,12 +68,36 @@ pipeline {
                 }
             }
         }
+
+        stage('parallel stages') {
+            parallel {
+                stage('test in parallel') {
+                    steps {
+                        script{
+                            sh """
+                                echo "this is from test parallel"
+                            """
+                        }
+                    }
+                }
+                stage('build in parallel') {
+                    steps {
+                        script{
+                            sh """
+                                echo "this is from build parallel"
+                            """
+                        }
+                    }
+                }
+            }
+        }
         
         
     }
     post {
         always {
             echo "i will always say hello"
+            deleteDir()
         }
         failure {
             echo "i will always say hello"
