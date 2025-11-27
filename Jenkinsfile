@@ -2,6 +2,7 @@ pipeline {
     agent { label 'Agent-1' }
     environment {
         project = 'Expense'
+        DEPLOY_TO= 'QA'
     }
     options {
         disableConcurrentBuilds()
@@ -55,6 +56,9 @@ pipeline {
                 parameters {
                     string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
                 }
+            }
+            when { 
+                environment name: 'DEPLOY_TO', value: 'production'
             }
             steps {
                 script{
