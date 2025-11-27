@@ -51,7 +51,7 @@ pipeline {
             steps {
                 script{
                     sh """
-                        echo "hello this is deploy"
+                        echo "hello this is deploy from node"
                     """
                 }
             }
