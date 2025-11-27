@@ -5,7 +5,7 @@ pipeline {
             steps {
                 script{
                     sh """
-                        echo "hello this is build"
+                        echo "hello this is build from node"
                     """
                 }
             }
@@ -14,7 +14,7 @@ pipeline {
             steps {
                 script{
                     sh """
-                        echo "hello this is test"
+                        echo "hello this is test node"
                     """
                 }
             }
